@@ -32,6 +32,11 @@ const VideoCarousel = () => {
       ease: "power2.inOut", // show visualizer https://gsap.com/docs/v3/Eases
     });
 
+    gsap.to('#blur',{
+      delay:0.2,
+      ease:'bounce'
+    })
+
     // video animation to play the video when it is in the view
     gsap.to("#video", {
       scrollTrigger: {
@@ -198,7 +203,7 @@ const VideoCarousel = () => {
       </div>
 
       <div className="relative flex-center mt-10">
-        <div className="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
+        <div id='blur' className="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
           {videoRef.current.map((_, i) => (
             <span
               key={i}
