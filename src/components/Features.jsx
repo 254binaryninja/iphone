@@ -1,14 +1,18 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { animateWithGsap } from "../utils/animations"
-import {exploreVideo} from "../utils/index"
+import {explore1Img, explore2Img, exploreVideo} from "../utils/index"
 import { useRef } from "react"
 
 const Features = () => {
    const videoRef = useRef();
 
   useGSAP(()=>{
-    animateWithGsap('#features_title',{y:0, opacity:1})
+    animateWithGsap('#features_title',{y:0, opacity:1});
+    animateWithGsap('.g_grow',{
+      scale:1, opacity:1,
+      ease:'power1'
+    },{scrub:5.5})
   },[])
   return (
   <section className=' h-full common-padding bg-zinc  relative overflow-hidden'>
@@ -30,6 +34,26 @@ const Features = () => {
                >
                 <source src={exploreVideo}/>
                </video>
+            </div>
+            <div className="flex flex-col w-full relative">
+                 <div className='feature-video-container'>
+                    <div className='overflow-hidden flex-1 h-[50vh]'>
+                      <img src={explore1Img} alt='title' className='feature-video g_grow'/>
+                    </div>
+                    <div className='overflow-hidden flex-1 h-[50vh]'>
+                      <img src={explore2Img} alt='title' className='feature-video g_grow'/>
+                    </div>
+                 </div>
+                 <div className='feature-text-container'>
+                   <div className='flex-1 flex-center'>
+                     <p className="feature-text g_text">
+                      iPhone 15 Pro {''}
+                     </p>
+                     <span>
+                      
+                     </span>
+                   </div>
+                 </div>
             </div>
           </div>
         </div>
